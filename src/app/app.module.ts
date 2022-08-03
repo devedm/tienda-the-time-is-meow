@@ -7,13 +7,15 @@ import { NavigationBarComponent } from './Components/navigation-bar/navigation-b
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginScreenComponent } from './Components/login-screen/login-screen.component';
+import { SignUpComponent } from './Components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
