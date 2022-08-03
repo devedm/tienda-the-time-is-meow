@@ -1,0 +1,30 @@
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#bubble-75{
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+}
+
+#bubble-25{
+    position: absolute;
+    top: 200px;
+    right: 0;
+}
+
+#container-img {
+    background-image: url("../../../assets/heroGirlCat.jpg");
+    background-size: cover;
+    height: 90vh;
+}
