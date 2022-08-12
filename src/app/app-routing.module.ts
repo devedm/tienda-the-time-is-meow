@@ -6,6 +6,7 @@ import { PanelComponent } from './Components/panel/panel.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginScreenComponent},
   { path: 'panel', component: PanelComponent},
