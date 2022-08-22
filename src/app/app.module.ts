@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PanelComponent } from './Components/panel/panel.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { PanelComponent } from './Components/panel/panel.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
