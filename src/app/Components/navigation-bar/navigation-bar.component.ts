@@ -9,6 +9,9 @@ export class NavigationBarComponent implements OnInit {
 
   constructor() { }
 
+  public isLogged: boolean = false;
+  public navUsername: string = "TestUser";
+
   ngOnInit(): void {
   }
 

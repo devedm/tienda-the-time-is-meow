@@ -13,16 +13,45 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex justify-content-end">
                 <li class="nav-item">
-                    <a routerLink="/home" routerLinkActive="active"class="nav-link text-primary ms-4" href="#">Inicio</a>
+                    <a routerLink="/home" 
+                    *ngIf="isLogged==false"
+                    routerLinkActive="active"
+                    class="nav-link text-primary ms-4" 
+                    href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/tienda" routerLinkActive="active" class="nav-link text-primary ms-4" href="#">Tienda</a>
+                    <a routerLink="/tienda" 
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Tienda</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/login" routerLinkActive="active" class="nav-link text-primary text-nowrap ms-4" href="#">Iniciar Sesión</a>
+                    <a routerLink="/login" 
+                    *ngIf="isLogged==false"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary text-nowrap ms-4" 
+                    href="#">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/signUp" routerLinkActive="active" class="nav-link text-primary ms-4" href="#">Registrarse</a>
+                    <a routerLink="/signUp" 
+                    *ngIf="isLogged==false"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/panel" 
+                    *ngIf="isLogged"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">{{navUsername}}</a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                    *ngIf="isLogged"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Cerrar Sesion</a>
                 </li>
             </ul>
         </div>
