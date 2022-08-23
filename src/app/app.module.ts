@@ -1,13 +1,21 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// components
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PanelComponent } from './Components/panel/panel.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
+
+// Environment
 import { environment } from '../environments/environment';
+
+// Firebase
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
