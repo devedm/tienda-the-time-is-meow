@@ -1,2 +1,4 @@
-export interface InformacionItemTienda {
+export interface itemFromDb {
+    name: string;
+    img: string;
 }
