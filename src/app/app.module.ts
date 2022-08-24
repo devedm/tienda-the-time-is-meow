@@ -9,15 +9,23 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PanelComponent } from './Components/panel/panel.component';
+import { LoggedOutComponent } from './Components/logged-out/logged-out.component';
 
 
 // Environment
 import { environment } from '../environments/environment';
 
 // Firebase
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
+
+// Providers
+import { AuthService } from './Services/authentication.service';
+
 
 @NgModule({
   declarations: [
@@ -26,16 +34,19 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     FooterComponent,
     routingComponents,
     PanelComponent,
+    LoggedOutComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth())
+    AngularFireModule.initializeApp(environment.firebase, 'timShop'),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

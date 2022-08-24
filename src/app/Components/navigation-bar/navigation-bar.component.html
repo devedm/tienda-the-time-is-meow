@@ -14,7 +14,14 @@
             <ul class="navbar-nav d-flex justify-content-end">
                 <li class="nav-item">
                     <a routerLink="/home" 
-                    *ngIf="isLogged==false"
+                    *ngIf="!authService.userData as user"
+                    routerLinkActive="active"
+                    class="nav-link text-primary ms-4" 
+                    href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/panel" 
+                    *ngIf="authService.userData as user"
                     routerLinkActive="active"
                     class="nav-link text-primary ms-4" 
                     href="#">Inicio</a>
@@ -27,28 +34,28 @@
                 </li>
                 <li class="nav-item">
                     <a routerLink="/login" 
-                    *ngIf="isLogged==false"
+                    *ngIf="!authService.userData as user"
                     routerLinkActive="active" 
                     class="nav-link text-primary text-nowrap ms-4" 
                     href="#">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="/signUp" 
-                    *ngIf="isLogged==false"
+                    *ngIf="!authService.userData as user"
                     routerLinkActive="active" 
                     class="nav-link text-primary ms-4" 
                     href="#">Registrarse</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="/panel" 
-                    *ngIf="isLogged"
+                    *ngIf="authService.userData as user"
                     routerLinkActive="active" 
                     class="nav-link text-primary ms-4" 
-                    href="#">{{navUsername}}</a>
+                    href="#">{{user.displayName}}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="white-space: nowrap;">
                     <a 
-                    *ngIf="isLogged"
+                    *ngIf="authService.userData as user"
                     routerLinkActive="active" 
                     class="nav-link text-primary ms-4" 
                     href="#">Cerrar Sesion</a>
