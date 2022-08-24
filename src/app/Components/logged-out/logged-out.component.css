@@ -1,0 +1,33 @@
+h1{
+    color: darkorange;
+}
+
+img {
+    border-color: coral;
+    border-radius: 10px;
+}
+
+button{
+    color: aliceblue;
+    background-color: coral;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+button:hover{
+    background-color: aliceblue;
+    color: coral;
+}
+
+.space {
+    margin-top: 10%;
+}
+
+.space1 {
+    margin-top: 3%;
+}
+
+.space2 {
+    margin-top: 3%;
+    margin-bottom: 16%;
+}

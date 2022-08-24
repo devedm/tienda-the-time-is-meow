@@ -13,16 +13,52 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex justify-content-end">
                 <li class="nav-item">
-                    <a routerLink="/home" routerLinkActive="active"class="nav-link text-primary ms-4" href="#">Inicio</a>
+                    <a routerLink="/home" 
+                    *ngIf="!authService.userData as user"
+                    routerLinkActive="active"
+                    class="nav-link text-primary ms-4" 
+                    href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/tienda" routerLinkActive="active" class="nav-link text-primary ms-4" href="#">Tienda</a>
+                    <a routerLink="/panel" 
+                    *ngIf="authService.userData as user"
+                    routerLinkActive="active"
+                    class="nav-link text-primary ms-4" 
+                    href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/login" routerLinkActive="active" class="nav-link text-primary text-nowrap ms-4" href="#">Iniciar Sesión</a>
+                    <a routerLink="/tienda" 
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Tienda</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/signUp" routerLinkActive="active" class="nav-link text-primary ms-4" href="#">Registrarse</a>
+                    <a routerLink="/login" 
+                    *ngIf="!authService.userData as user"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary text-nowrap ms-4" 
+                    href="#">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/signUp" 
+                    *ngIf="!authService.userData as user"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/panel" 
+                    *ngIf="authService.userData as user"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">{{user.displayName}}</a>
+                </li>
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a 
+                    *ngIf="authService.userData as user"
+                    routerLinkActive="active" 
+                    class="nav-link text-primary ms-4" 
+                    href="#">Cerrar Sesion</a>
                 </li>
             </ul>
         </div>
