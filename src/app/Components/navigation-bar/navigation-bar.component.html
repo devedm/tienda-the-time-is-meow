@@ -51,13 +51,14 @@
                     *ngIf="authService.userData as user"
                     routerLinkActive="active" 
                     class="nav-link text-primary ms-4" 
-                    href="#">{{user.displayName}}</a>
+                    href="#">{{user.email.slice(0,user.email.search('@'))}}</a>
                 </li>
                 <li class="nav-item" style="white-space: nowrap;">
                     <a 
                     *ngIf="authService.userData as user"
                     routerLinkActive="active" 
-                    class="nav-link text-primary ms-4" 
+                    class="nav-link text-primary ms-4"
+                    (click)="authService.SignOut()"
                     href="#">Cerrar Sesion</a>
                 </li>
             </ul>

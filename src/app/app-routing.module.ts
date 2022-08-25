@@ -7,6 +7,7 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { TiendaComponent } from './Components/tienda/tienda.component';
 import { LoggedOutComponent } from './Components/logged-out/logged-out.component';
 import { AuthGuard } from './Guard/auth.guard';
+import { VerifyEmailComponent } from './Components/verify-email/verify-email.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'signUp', component: SignUpComponent},
   { path: 'tienda', component: TiendaComponent}, 
   { path: 'loggedOut', component: LoggedOutComponent}, 
+  { path: 'verify-email-address', component: VerifyEmailComponent },
 ];
 
 @NgModule({
@@ -23,4 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, LoginScreenComponent, PanelComponent, SignUpComponent, TiendaComponent, LoggedOutComponent]
+export const routingComponents = [HomeComponent, LoginScreenComponent, PanelComponent, SignUpComponent, TiendaComponent, LoggedOutComponent, VerifyEmailComponent]

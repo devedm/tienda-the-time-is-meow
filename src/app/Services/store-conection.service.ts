@@ -6,12 +6,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class StoreConectionService {
   constructor(
-    private db: AngularFirestore
+    public db: AngularFirestore,
+
   ) { }
-  getAllItems() {
+  getItemFromDB() {
     return new Promise<any>((resolve) => {
       this.db.collection('ttimShopDB').valueChanges({ idField: 'id' }).subscribe(users => resolve(users));
     })
+  }
+
+  substractItem(item: any){
+    item.quantity -= 1;
   }
 
 }

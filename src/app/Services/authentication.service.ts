@@ -50,22 +50,32 @@ export class AuthService {
       });
   }
   // Sign up with email/password
-  SignUp(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+  async SignUp(email: string, password: string) {
+    try {
+      const result = await this.afAuth
+        .createUserWithEmailAndPassword(email, password);
         this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
+        this.router.navigate(['login']);
+      /* Call the SendVerificaitonMail() function when new user sign
+      up and returns promise */
+    } catch (error: any) {
+      window.alert(error.message)
+    }
   }
-  
+
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null ? true : false;
   }
 
+  SendVerificationMail() {
+    return this.afAuth.currentUser
+      .then((u: any) => u.sendEmailVerification())
+      .then(() => {
+        this.router.navigate(['verify-email-address']);
+      });
+  }
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -76,7 +86,9 @@ export class AuthService {
     const userData: UserFirebase = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
     };
     return userRef.set(userData, {
       merge: true,
