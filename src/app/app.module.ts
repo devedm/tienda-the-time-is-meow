@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // components
 import { AppComponent } from './app.component';
@@ -10,6 +9,7 @@ import { NavigationBarComponent } from './Components/navigation-bar/navigation-b
 import { FooterComponent } from './Components/footer/footer.component';
 import { PanelComponent } from './Components/panel/panel.component';
 import { LoggedOutComponent } from './Components/logged-out/logged-out.component';
+import { VerifyEmailComponent} from './Components/verify-email/verify-email.component';
 
 
 // Environment
@@ -35,6 +35,7 @@ import { AuthService } from './Services/authentication.service';
     routingComponents,
     PanelComponent,
     LoggedOutComponent,
+    VerifyEmailComponent
     
   ],
   imports: [

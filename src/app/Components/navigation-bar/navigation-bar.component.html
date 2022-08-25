@@ -57,7 +57,8 @@
                     <a 
                     *ngIf="authService.userData as user"
                     routerLinkActive="active" 
-                    class="nav-link text-primary ms-4" 
+                    class="nav-link text-primary ms-4"
+                    (click)="authService.SignOut()"
                     href="#">Cerrar Sesion</a>
                 </li>
             </ul>
