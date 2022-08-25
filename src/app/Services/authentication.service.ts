@@ -50,14 +50,17 @@ export class AuthService {
       });
   }
   // Sign up with email/password
-  SignUp(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+  async SignUp(email: string, password: string) {
+    try {
+      const result = await this.afAuth
+        .createUserWithEmailAndPassword(email, password);
         this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
+        this.router.navigate(['login']);
+      /* Call the SendVerificaitonMail() function when new user sign
+      up and returns promise */
+    } catch (error: any) {
+      window.alert(error.message)
+    }
   }
 
   // Returns true when user is looged in and email is verified

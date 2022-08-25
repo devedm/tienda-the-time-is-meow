@@ -12,7 +12,7 @@
           <input type="password" class="form-control mb-3" id="singUp-password-comfirm"
             placeholder="Confirmar Contraseña*" aria-describedby="passwordHelpInline">
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrarse</button>
+            <button class="btn btn-primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrarse</button>
           </div>
           <div class="text-center">
             <p class="my-2">Ya tienes una Cuenta?</p>
